@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                  child: SizedBox(
                   height: MediaQuery.of(context).size.height,
                    child: GridView.builder(
-                    physics: BouncingScrollPhysics(decelerationRate :ScrollDecelerationRate.normal,parent: AlwaysScrollableScrollPhysics()),
+                    physics: BouncingScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 10,
