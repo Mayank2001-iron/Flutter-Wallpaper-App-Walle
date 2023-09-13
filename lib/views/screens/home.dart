@@ -1,15 +1,37 @@
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
+import "package:flutter_application_walle/controller/apiOper.dart";
+import "package:flutter_application_walle/model/photosModel.dart";
 import "package:flutter_application_walle/views/screens/home.dart";
 import "package:flutter_application_walle/views/widget/CustomAppBar.dart";
 import 'package:flutter_application_walle/views/widget/SearchBar1.dart';
 import "package:flutter_application_walle/views/widget/catBlock.dart";
 import "package:flutter_application_walle/views/widget/gridView.dart";
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late List<PhotosModel> trendingWallList;
+  GetTrendingWallpapers() async{
+    trendingWallList = await ApiOperations.getTrendingWallpapers();
+    setState(() {
+      
+    });
+  }
+  @override
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    GetTrendingWallpapers();
+  }
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -25,7 +47,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-              child: SearchBar1(),
+              child: SearchBar1(query: '',),
             ),
       
               Container(
@@ -35,8 +57,8 @@ class HomeScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 30,
-                    itemBuilder: (context,index)=> CatBlock(),
+                    itemCount: trendingWallList.length,
+                    itemBuilder: (context,index)=> CatBlock(imgSrc: trendingWallList[index].imgSrc,),
                     
                     ),
                     
@@ -59,8 +81,8 @@ class HomeScreen extends StatelessWidget {
                                       mainAxisSpacing: 10,
                                       mainAxisExtent: 400
                                       ), 
-                    itemCount: 16,
-                    itemBuilder:((context,index)=>GridImage()),
+                    itemCount: trendingWallList.length,
+                    itemBuilder:((context,index)=>GridImage(imgSrc:trendingWallList[index].imgSrc)),
                     
                     ),
                  ),

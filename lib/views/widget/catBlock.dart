@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 
 class CatBlock extends StatelessWidget {
-  const CatBlock({super.key});
+  String imgSrc;
+  CatBlock({super.key,required this.imgSrc});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,8 @@ class CatBlock extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                               child: Image.network(
                               fit:BoxFit.cover,
-                              "https://images.pexels.com/photos/11876188/pexels-photo-11876188.jpeg?auto=compress&cs=tinysrgb&w=600")
+                              imgSrc,
+                              ),
                               ),
                     ),
 

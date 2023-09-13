@@ -1,9 +1,19 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-class SearchBar1 extends StatelessWidget {
-  const SearchBar1({super.key});
+import 'package:flutter_application_walle/views/screens/search.dart';
 
+
+
+class SearchBar1 extends StatelessWidget {
+  String query;
+  SearchBar1({super.key,required this.query});
+
+  TextEditingController _searchController = TextEditingController(); 
+
+ 
   @override
+  
+
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20,),
@@ -15,7 +25,7 @@ class SearchBar1 extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
-          
+              controller: _searchController,
               decoration: InputDecoration( 
               hintText: "Search Wadllpapers",
               errorBorder :InputBorder.none,
@@ -31,7 +41,7 @@ class SearchBar1 extends StatelessWidget {
 
           InkWell(
             onTap: (){
-              print("SEarching..............");
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>SearchScreen(query:_searchController.text)));
             },
             child: Icon(Icons.search),
             ),
