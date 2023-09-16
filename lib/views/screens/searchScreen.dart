@@ -20,12 +20,13 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
    
   late List<PhotosModel> searchResults;
+   bool isLoading=true;
 
   GetSearchResults()async{
     searchResults =await ApiOperations.searchWallpapers(widget.query);
 
     setState(() {
-      
+      isLoading = false;
     });
   }
   @override
@@ -47,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
         title: CustomAppBar(),
       ),
 
-      body: SingleChildScrollView(
+      body: isLoading ? Center(child: CircularProgressIndicator(),): SingleChildScrollView(
         child: Column(
           children: [
             Container(

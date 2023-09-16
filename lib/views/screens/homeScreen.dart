@@ -1,6 +1,7 @@
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter_application_walle/controller/apiOper.dart";
+import "package:flutter_application_walle/model/categoryModel.dart";
 import "package:flutter_application_walle/model/photosModel.dart";
 import 'package:flutter_application_walle/views/screens/homeScreen.dart';
 import "package:flutter_application_walle/views/widget/CustomAppBar.dart";
@@ -18,11 +19,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late List<PhotosModel> trendingWallList;
+  late List<CategoryModel> CatModList;
+
 
  bool isLoading=true;
+  GetCatDetails() async{
+    CatModList = await ApiOperations.getCategoriesList();
+    setState(() {
+      CatModList=CatModList;
+    });
+  }
 
   GetTrendingWallpapers() async{
     trendingWallList = await ApiOperations.getTrendingWallpapers();
+    
     setState(() {
       isLoading = false;
     });
@@ -32,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    GetCatDetails();
     GetTrendingWallpapers();
   }
 
@@ -61,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: trendingWallList.length,
-                    itemBuilder: (context,index)=> CatBlock(imgSrc: trendingWallList[index].imgSrc,),
+                    itemCount: CatModList.length,
+                    itemBuilder: (context,index)=> CatBlock(imgSrc: CatModList[index].catImgUrl,query: CatModList[index].catName),
                     
                     ),
                     

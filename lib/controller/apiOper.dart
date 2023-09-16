@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter_application_walle/model/categoryModel.dart';
 import 'package:flutter_application_walle/model/photosModel.dart';
@@ -6,16 +7,10 @@ import 'package:http/http.dart' as http;
 class ApiOperations{
   static  late List<PhotosModel> trendingWallpapers=[];
   static  late List<PhotosModel> searchWallpapersList=[];
-  static  late List<CategoryModel> getCategoriesList=[];
-
-  // static List<CategoryModel> getCategoriesList()
-  // {
-  //   List categoryName=["Cars","Nature","Bikes","Street","City","Flower"];
-  //   categoryModeList.clear();
-
-  // }
+  static  late List<CategoryModel> cateogryModelList=[];
   
-
+  
+  static String _apikey = "zbDINaTEYDNqg1SAi7o60gXeVqKq6EHO2SrGud5M1X90gJq4peN2uAs1";
 
   static Future<List<PhotosModel>> getTrendingWallpapers() async
   {
@@ -49,4 +44,32 @@ class ApiOperations{
       });
     return searchWallpapersList;
   }
+  
+  static List<CategoryModel> getCategoriesList() {
+    List cateogryName = [
+      "Cars",
+      "Nature",
+      "Bikes",
+      "Street",
+      "City",
+      "Flowers"
+    ];
+    cateogryModelList.clear();
+    cateogryName.forEach((catName) async {
+      final _random = new Random();
+
+      PhotosModel photoModel =
+          (await searchWallpapers(catName))[0 + _random.nextInt(11 - 0)];
+      print("IMG SRC IS HERE");
+      print(photoModel.imgSrc);
+      cateogryModelList.add(CategoryModel(catImgUrl: photoModel.imgSrc, catName: catName));
+    });
+
+    return cateogryModelList;
+  }
+
+  
+  
+
+
 }
