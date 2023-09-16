@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_walle/views/screens/category.dart';
-import 'package:flutter_application_walle/views/screens/home.dart';
+import 'package:flutter_application_walle/views/screens/categoryScreen.dart';
+import 'package:flutter_application_walle/views/screens/homeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
        
        primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: CategoryScreen(query: 'human'),
 
       
     );

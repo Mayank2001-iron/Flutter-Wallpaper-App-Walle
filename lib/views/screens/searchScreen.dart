@@ -2,34 +2,39 @@ import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter_application_walle/controller/apiOper.dart";
 import "package:flutter_application_walle/model/photosModel.dart";
-import "package:flutter_application_walle/views/screens/home.dart";
+import 'package:flutter_application_walle/views/screens/homeScreen.dart';
 import "package:flutter_application_walle/views/widget/CustomAppBar.dart";
 import 'package:flutter_application_walle/views/widget/SearchBar1.dart';
 import "package:flutter_application_walle/views/widget/catBlock.dart";
-import "package:flutter_application_walle/views/widget/gridView.dart";
+import "package:flutter_application_walle/views/widget/gridImage.dart";
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+// ignore: must_be_immutable
+class SearchScreen extends StatefulWidget {
+  String query;
+  SearchScreen({super.key, required this.query});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  late List<PhotosModel> trendingWallList;
-  GetTrendingWallpapers() async{
-    trendingWallList = await ApiOperations.getTrendingWallpapers();
+class _SearchScreenState extends State<SearchScreen> {
+   
+  late List<PhotosModel> searchResults;
+
+  GetSearchResults()async{
+    searchResults =await ApiOperations.searchWallpapers(widget.query);
+
     setState(() {
       
     });
   }
   @override
-
-  void initState() {
+ void initState() {
     // TODO: implement initState
     super.initState();
-    GetTrendingWallpapers();
+    GetSearchResults();
   }
+  
 
 
   Widget build(BuildContext context) {
@@ -50,20 +55,20 @@ class _HomeScreenState extends State<HomeScreen> {
               child: SearchBar1(query: '',),
             ),
       
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                child: SizedBox(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: trendingWallList.length,
-                    itemBuilder: (context,index)=> CatBlock(imgSrc: trendingWallList[index].imgSrc,),
+              // Container(
+              //   margin: EdgeInsets.symmetric(horizontal: 10),
+              //   child: SizedBox(
+              //     height: 100,
+              //     width: MediaQuery.of(context).size.width,
+              //     child: ListView.builder(
+              //       scrollDirection: Axis.horizontal,
+              //       itemCount: searchResults.length,
+              //       itemBuilder: (context,index)=> CatBlock(imgSrc: searchResults[index].imgSrc,),
                     
-                    ),
+              //       ),
                     
-                ),
-              ),
+              //   ),
+              // ),
       
       
       
@@ -81,8 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       mainAxisSpacing: 10,
                                       mainAxisExtent: 400
                                       ), 
-                    itemCount: trendingWallList.length,
-                    itemBuilder:((context,index)=>GridImage(imgSrc:trendingWallList[index].imgSrc)),
+                    itemCount: searchResults.length,
+                    itemBuilder:((context,index)=>GridImage(imgSrc:searchResults[index].imgSrc)),
                     
                     ),
                  ),
