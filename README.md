@@ -1,16 +1,8 @@
-# flutter_application_walle
+# Wallpaper App Walle
+The Flutter Wallpaper App is a mobile application that allows users to customize their device's home screen and lock screen with unique and visually appealing wallpapers. The app features various high-quality images, including nature scenes, cityscapes, abstract designs, and more. Users can browse through the collection and select the wallpapers that best suit their style. The app also offers a range of customization options, such as the ability to crop, resize, and rotate images, as well as adjust their brightness, contrast, and saturation. Additionally, the app includes a live wallpaper feature, which allows users to set animated wallpapers on their devices. The Flutter Wallpaper App is easy to use and navigate, making it an excellent choice for users looking to personalize their device's home screen and lock screen.
 
-A new Flutter project.
+## API
+- [API : Pexels.com](https://www.pexels.com)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+![Home](main screen.jpg)
