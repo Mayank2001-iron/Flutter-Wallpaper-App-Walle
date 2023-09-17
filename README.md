@@ -5,7 +5,7 @@ The Flutter Wallpaper App is a mobile application that allows users to customize
 - [API : Pexels.com](https://www.pexels.com)
 
 ## Screenshots
-![Home](screenshots/mainscreen.jpg "Home")
+![Home](screenshots/mainScreen.jpg "Home")
 ![Category](screenshots/categoryScreen.jpg "CategoryScreen")
 ![Search](screenshots/searchScreen.jpg "SearchScreen")
 
