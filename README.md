@@ -1,12 +1,59 @@
-# Wallpaper App Walle
-The Flutter Wallpaper App is a mobile application that allows users to customize their device's home screen and lock screen with unique and visually appealing wallpapers. The app features various high-quality images, including nature scenes, cityscapes, abstract designs, and more. Users can browse through the collection and select the wallpapers that best suit their style. The app also offers a range of customization options, such as the ability to crop, resize, and rotate images, as well as adjust their brightness, contrast, and saturation. Additionally, the app includes a live wallpaper feature, which allows users to set animated wallpapers on their devices. The Flutter Wallpaper App is easy to use and navigate, making it an excellent choice for users looking to personalize their device's home screen and lock screen.
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
 
-## API
-- [API : Pexels.com](https://www.pexels.com)
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
 
-## Screenshots
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606500-d6c3b686-0e26-4280-9981-70ff292a1453.jpg">
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606524-ff15605a-7e6b-464d-97e6-f012f3b73947.jpg">
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606533-a9e389c8-150b-4430-b9e9-54207f781a3c.jpg">
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
 
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_application_walle">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>flutter_application_walle</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
