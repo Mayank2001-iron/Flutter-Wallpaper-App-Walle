@@ -5,8 +5,7 @@ The Flutter Wallpaper App is a mobile application that allows users to customize
 - [API : Pexels.com](https://www.pexels.com)
 
 ## Screenshots
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606500-d6c3b686-0e26-4280-9981-70ff292a1453.jpg">
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606524-ff15605a-7e6b-464d-97e6-f012f3b73947.jpg">
-<img width="250" alt="search" src="https://user-images.githubusercontent.com/76560885/278606533-a9e389c8-150b-4430-b9e9-54207f781a3c.jpg">
-
+![home1](https://github.com/Mayank2001-iron/Flutter-Wallpaper-App-Walle/assets/76560885/92faddb5-2c75-4bba-baa4-840c79e2b5b3)
+![cat1](https://github.com/Mayank2001-iron/Flutter-Wallpaper-App-Walle/assets/76560885/66048aaf-c9a4-4f78-8fb8-57634280e10f)
+![search1](https://github.com/Mayank2001-iron/Flutter-Wallpaper-App-Walle/assets/76560885/95a400a5-8430-43d4-ba5f-bd745cf74d19)
 
